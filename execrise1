@@ -1,0 +1,17 @@
+use DWH;
+
+create table exer_DB (
+ID int,
+first_name varchar,
+last_name varchar,
+email varchar,
+age int,
+city varchar)
+
+copy into exer_db
+from s3://snowflake-assignments-mc/gettingstarted/customers.csv
+file_format = (type = csv 
+                   field_delimiter = ',' 
+                   skip_header=1);
+
+select * from exer_db;
